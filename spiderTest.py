@@ -21,4 +21,6 @@ class TestSpider(unittest.TestCase):
         self.assertIn("images/pic_bulbon.png", self.spider.get_img_src())
 
 if __name__ == '__main__':
-    unittest.main()
+    with open("./result/test.txt", "w") as f:
+        runner = unittest.TextTestRunner(f, verbosity=2)
+        unittest.main(testRunner=runner)

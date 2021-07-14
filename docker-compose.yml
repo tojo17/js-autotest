@@ -12,11 +12,13 @@ services:
             - /dev/shm:/dev/shm
 
     test-runner:
-        image: tester
+        image: js-autotest/tester
         build: 
             context: .
             dockerfile: Dockerfile
         depends_on: 
             - html
             - selenium-chrome
+        volumes:
+            - ./result:/usr/src/app/result
         
