@@ -6,7 +6,7 @@ all: test
 
 # Clean result
 clean:
-	docker image rm js-autotest/tester
+	docker image rm js-autotest/tester || true
 	rm -rf ./result
 
 # Test
