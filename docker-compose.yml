@@ -1,0 +1,22 @@
+version: "2"
+
+services:
+    html:
+        image: nginx:alpine
+        volumes:
+            - ./html:/usr/share/nginx/html:ro
+    
+    selenium-chrome:
+        image: selenium/standalone-chrome
+        volumes:
+            - /dev/shm:/dev/shm
+
+    test-runner:
+        image: tester
+        build: 
+            context: .
+            dockerfile: Dockerfile
+        depends_on: 
+            - html
+            - selenium-chrome
+        

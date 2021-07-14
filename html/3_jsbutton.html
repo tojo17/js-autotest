@@ -1,0 +1,34 @@
+<html>
+<style>
+	h2.heading {
+		color: black;
+	}
+</style>
+<head>
+	<title>JS Button</title>
+</head>
+
+<body>
+	<h2 class="heading">Turn off the light</h2>
+	<img id="myImage" src="images/pic_bulbon.png" style="height:200px">
+	<br>
+	<button id="switch_button" onclick="light_switch()">Turn off the light</button>
+</body>
+<script type="text/javascript">
+	var isOn = true;
+	function light_switch() {
+		if (isOn) {
+			// turn off
+			isOn = false;
+			document.getElementById('myImage').src = 'images/pic_bulboff.png';
+			document.getElementById('switch_button').innerText = "Turn on the light";
+		} else {
+			// turn on
+			isOn = true;
+			document.getElementById('myImage').src = 'images/pic_bulbon.png';
+			document.getElementById('switch_button').innerText = "Turn off the light";
+		}
+	}
+</script>
+
+</html>
