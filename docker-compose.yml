@@ -15,10 +15,11 @@ services:
         image: js-autotest/tester
         build: 
             context: .
-            dockerfile: Dockerfile
+            dockerfile: Dockerfile             
         depends_on: 
             - html
             - selenium-chrome
         volumes:
             - ./result:/usr/src/app/result
-        
+            - /etc/localtime:/etc/localtime:ro
+        # user: 1000:1000
