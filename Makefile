@@ -6,10 +6,11 @@ all: test
 
 # Clean result
 clean:
+	docker-compose rm -fsv
 	docker image rm js-autotest/tester || true
 	rm -rf ./result
 
 # Test
 test: clean
 	docker-compose up --build --abort-on-container-exit && docker-compose rm -fsv
-	cat ./result/test.txt
+# cat ./result/test.txt
