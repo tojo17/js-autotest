@@ -1,4 +1,4 @@
-.PHONY: clean test
+.PHONY: clean test init clean-test
 
 version = v0.1
 
@@ -10,7 +10,14 @@ clean:
 	docker image rm js-autotest/tester || true
 	rm -rf ./result
 
+# init
+init:
+	mkdir -p ./result
+	docker-compose build
+
 # Test
-test: clean
-	docker-compose up --build --abort-on-container-exit && docker-compose rm -fsv
-# cat ./result/test.txt
+test: init
+	docker-compose up --abort-on-container-exit
+
+# clean-test
+clean-test: clean test
