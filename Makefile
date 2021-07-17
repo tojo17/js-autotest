@@ -2,6 +2,9 @@
 
 version = v0.1
 
+export UID = $(shell id -u)
+export GID = $(shell id -g)
+
 all: test
 
 # Clean result
