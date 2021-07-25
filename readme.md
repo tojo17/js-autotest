@@ -13,6 +13,8 @@ if docker needs sudo, run:
 
 `sudo -E make`
 
+**Do not run with root user directly.**
+
 The result HTML file will be in `./result/` folder.
 
 There might be a `Failed to execute script docker-compose` error when run on Docker for Windows via WSL2,

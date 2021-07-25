@@ -4,6 +4,16 @@ version = v0.1
 
 export UID = $(shell id -u)
 export GID = $(shell id -g)
+$(info Running as UID=$(UID), GID=$(GID))
+
+ifeq ($(UID), 0)
+  export UID = $(SUDO_UID)
+  export GID = $(SUDO_GID)
+  ifndef $(UID)
+    $(error You cannot run this script while logged as root)
+  endif
+endif
+$(info Running by UID=$(UID), GID=$(GID))
 
 all: test
 
