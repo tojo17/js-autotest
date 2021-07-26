@@ -26,6 +26,7 @@ clean:
 # init
 init:
 	mkdir -p ./result
+	chown -R $(UID):$(GID) ./result
 	docker-compose build
 
 # Test
